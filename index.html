@@ -3,161 +3,155 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
 <style>
-:root {
-  --bg:       #080808;
-  --s1:       #0E0E0E;
-  --s2:       #131313;
-  --border:   #1C1C1C;
-  --border-2: #2A1F4A;
-  --text:     #EDEDED;
-  --text-2:   #666;
-  --text-3:   #333;
-  --purple:   #7C3AED;
-  --violet:   #A78BFA;
-  --pink:     #E879F9;
-  --green:    #10B981;
-  color-scheme: dark;
+:root{
+  --bg:#080808;--s1:#0E0E0E;--s2:#131313;--border:#1C1C1C;--border-h:#2A1F4A;
+  --text:#EDEDED;--text-2:#666;--text-3:#2E2E2E;
+  --purple:#7C3AED;--violet:#A78BFA;--pink:#E879F9;--green:#10B981;--amber:#FBBF24;--red:#F43F5E;--cyan:#06B6D4;
+  color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:'Inter',system-ui,sans-serif;
-  background:var(--bg);color:var(--text);
-  overflow-x:hidden;
-  padding-left:max(0px,env(safe-area-inset-left,0px));
-  padding-right:max(0px,env(safe-area-inset-right,0px));
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));padding-bottom:env(safe-area-inset-bottom,0px)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:101}
 a{color:inherit;text-decoration:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* NAV */
-nav{
-  position:sticky;top:env(safe-area-inset-top,0px);z-index:100;
-  background:rgba(8,8,8,.85);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-}
-.nav-inner{
-  max-width:1200px;margin:0 auto;
-  display:flex;align-items:center;
-  padding:0 max(24px,env(safe-area-inset-left,0px));
-}
-.nav-logo{
-  font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:18px;
-  color:#fff;padding:15px 24px 15px 0;letter-spacing:-.02em;flex-shrink:0;
-}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:100;background:rgba(8,8,8,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:0 max(24px,env(safe-area-inset-left,0px))}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:18px;color:#fff;padding:15px 24px 15px 0;letter-spacing:-.02em;flex-shrink:0}
 .nav-logo span{color:var(--violet)}
 .nav-links{display:flex;flex:1;overflow-x:auto;scrollbar-width:none}
 .nav-links::-webkit-scrollbar{display:none}
-.nav-link{
-  padding:16px 14px;font-size:13px;font-weight:500;color:var(--text-2);
-  white-space:nowrap;cursor:pointer;transition:color .18s;
-}
+.nav-link{padding:16px 14px;font-size:13px;font-weight:500;color:var(--text-2);white-space:nowrap;cursor:pointer;transition:color .18s}
 .nav-link:hover{color:var(--text)}
-.nav-cta{
-  margin-left:auto;flex-shrink:0;
-  background:var(--purple);color:#fff;border-radius:7px;
-  padding:8px 18px;font-size:13px;font-weight:700;
-  font-family:'Space Grotesk',sans-serif;cursor:pointer;
-  transition:opacity .2s;white-space:nowrap;align-self:center;
-}
+.nav-cta{margin-left:auto;flex-shrink:0;background:var(--purple);color:#fff;border-radius:7px;padding:8px 18px;font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:opacity .2s;white-space:nowrap;align-self:center}
 .nav-cta:hover{opacity:.85}
 @media(max-width:600px){.nav-links{display:none}}
 
 /* HERO */
-.hero{
-  max-width:1200px;margin:0 auto;
-  padding:80px max(24px,env(safe-area-inset-left,0px)) 72px;
-}
-.hero-eyebrow{
-  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--text-2);margin-bottom:24px;
-}
-.hero-h1{
-  font-family:'Space Grotesk',sans-serif;font-weight:800;
-  font-size:clamp(48px,8vw,96px);line-height:.95;letter-spacing:-.04em;
-  color:#fff;
-}
-.hero-h1 .grad{
-  background:linear-gradient(100deg,#A78BFA 0%,#E879F9 50%,#7C3AED 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  display:block;
-}
+.hero{max-width:1200px;margin:0 auto;padding:72px max(24px,env(safe-area-inset-left,0px)) 64px;display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:center}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:40px}}
+.hero-left{}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);margin-bottom:24px}
+.hero-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(44px,6.5vw,80px);line-height:.95;letter-spacing:-.04em;color:#fff;margin-bottom:20px}
+.hero-h1 .grad{background:linear-gradient(100deg,#A78BFA,#E879F9 50%,#7C3AED);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:block}
 .hero-h1 .dim{color:rgba(255,255,255,.18);-webkit-text-fill-color:rgba(255,255,255,.18);display:block}
-.hero-sub-row{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  margin-top:36px;gap:24px;flex-wrap:wrap;
-}
-.hero-desc{font-size:15px;color:var(--text-2);line-height:1.65;max-width:380px}
-.hero-stats{display:flex;gap:32px;flex-shrink:0;flex-wrap:wrap}
-.hstat-num{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:28px;color:#fff;line-height:1}
+.hero-p{font-size:15px;color:var(--text-2);line-height:1.7;max-width:420px;margin-bottom:28px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{background:var(--purple);color:#fff;border-radius:8px;padding:12px 24px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:opacity .2s,transform .15s;border:none}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid var(--border-h);color:var(--text-2);border-radius:8px;padding:12px 24px;font-size:14px;font-weight:600;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--violet);color:var(--text)}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--border)}
+.hstat-num{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:26px;color:#fff;line-height:1}
 .hstat-num span{color:var(--violet)}
-.hstat-label{font-size:11px;font-weight:600;color:var(--text-2);margin-top:3px;letter-spacing:.02em}
+.hstat-label{font-size:11px;font-weight:600;color:var(--text-2);margin-top:3px}
+
+/* LIVE DASHBOARD (hero right) */
+.hero-dash{background:#0A0F1A;border:1px solid rgba(37,99,235,.2);border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.7),0 0 40px rgba(124,58,237,.08)}
+.hd-topbar{background:#060C18;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between}
+.hd-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:#fff}
+.hd-live{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:var(--green)}
+.hd-live::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+.hd-body{padding:14px}
+.hd-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.hd-kpi{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:10px}
+.hd-kpi-val{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:16px;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+.hd-kpi-lbl{font-size:9px;font-weight:600;color:rgba(255,255,255,.3);margin-top:3px;letter-spacing:.02em}
+.hd-kpi-delta{font-size:9px;font-weight:700;margin-top:4px}
+.delta-up{color:var(--green)}.delta-dn{color:var(--red)}
+.hd-section-label{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:7px}
+.hd-queues{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.hd-q{display:flex;align-items:center;gap:8px}
+.hd-q-name{font-size:10px;color:rgba(255,255,255,.55);width:112px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hd-q-track{flex:1;height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.hd-q-fill{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.hd-q-time{font-size:10px;font-weight:700;color:#fff;width:28px;text-align:right;font-variant-numeric:tabular-nums}
+.hd-revenue-row{display:flex;gap:6px}
+.hd-rev-card{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:7px;padding:9px}
+.hd-rev-label{font-size:8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:4px}
+.hd-rev-val{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:14px;color:#fff;font-variant-numeric:tabular-nums}
+.hd-rev-bar{height:3px;border-radius:2px;margin-top:6px;transition:width 1.2s}
+/* AI pulse chip */
+.hd-ai-chip{display:flex;align-items:center;gap:6px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.2);border-radius:6px;padding:6px 10px;margin-top:10px}
+.hd-ai-dot{width:6px;height:6px;border-radius:50%;background:var(--violet);animation:ai-pulse 1.8s ease-in-out infinite}
+@keyframes ai-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hd-ai-text{font-size:9px;font-weight:600;color:var(--violet);letter-spacing:.03em}
 
 /* SECTION */
 .sec{border-top:1px solid var(--border);padding:72px max(24px,env(safe-area-inset-left,0px))}
 .sec-inner{max-width:1200px;margin:0 auto}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:32px;gap:16px;flex-wrap:wrap}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;gap:16px;flex-wrap:wrap}
 .sec-title{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(22px,3vw,32px);color:#fff;letter-spacing:-.02em}
 .sec-title span{color:var(--violet)}
 .sec-meta{font-size:12px;font-weight:600;color:var(--text-2)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:10px}
 
-/* GRIDS */
+/* ABOUT STRIP */
+.about-strip{background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px max(24px,env(safe-area-inset-left,0px))}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media(max-width:700px){.about-inner{grid-template-columns:1fr;gap:28px}}
+.about-quote-mark{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:72px;color:rgba(124,58,237,.15);line-height:.7;margin-bottom:12px}
+.about-quote{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(18px,2.5vw,24px);color:#fff;line-height:1.35;margin-bottom:16px;text-wrap:balance}
+.about-attr{font-size:13px;color:var(--text-2)}
+.about-attr strong{color:var(--violet)}
+.about-bullets{display:flex;flex-direction:column;gap:14px}
+.about-bullet{display:flex;gap:14px;align-items:flex-start}
+.ab-icon{width:36px;height:36px;border-radius:9px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.18);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ab-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:3px}
+.ab-desc{font-size:12.5px;color:var(--text-2);line-height:1.55}
+
+/* CARDS */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 @media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.grid-3,.grid-2,.grid-4{grid-template-columns:1fr}}
-
-/* CARD */
-.card{
-  background:var(--s1);border:1px solid var(--border);border-radius:14px;
-  overflow:hidden;cursor:default;transition:border-color .2s,transform .2s;
-}
+.card{background:var(--s1);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:default;transition:border-color .2s,transform .2s}
 .card:hover{border-color:rgba(124,58,237,.4);transform:translateY(-2px)}
 .card-thumb{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--s2)}
 .card-body{padding:16px 18px 18px}
-.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
 .tag{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text-2)}
 .tag.purple{background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.25);color:var(--violet)}
-.tag.green{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.2);color:#10B981}
+.tag.green{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.2);color:var(--green)}
+.tag.ai{background:rgba(232,121,249,.08);border-color:rgba(232,121,249,.2);color:var(--pink)}
 .card-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
 .card-desc{font-size:12.5px;color:var(--text-2);line-height:1.55}
 
-/* ── THUMBNAIL STYLES ──────────────────────────── */
-
-/* Mobile thumb */
+/* SERVICE THUMBNAILS */
 .th-mobile{background:linear-gradient(135deg,#1A0640,#2D0E70);display:flex;align-items:center;justify-content:center}
 .th-phone{width:72px;height:130px;border-radius:14px;background:#060310;border:1.5px solid #3D1A7A;box-shadow:0 8px 32px rgba(0,0,0,.7);overflow:hidden}
 .th-phone-screen{background:linear-gradient(160deg,#2D1060,#5B21B6);height:100%;padding:8px 6px 0;display:flex;flex-direction:column;gap:4px}
 .th-pbar{height:5px;border-radius:3px;background:rgba(255,255,255,.12)}
-.th-pbar.a{width:80%}.th-pbar.b{width:60%}
 .th-pcard{background:rgba(255,255,255,.08);border-radius:5px;padding:5px 6px;margin-top:4px}
 .th-pcnum{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:14px;color:#A78BFA;line-height:1}
 .th-pclabel{font-size:6px;color:rgba(255,255,255,.4);font-weight:600;margin-top:1px}
 
-/* Web thumb */
 .th-web{background:linear-gradient(135deg,#060E20,#0A1630);display:flex;align-items:center;justify-content:center}
 .th-browser{width:160px;height:100px;border-radius:8px;background:#0D1A30;border:1px solid rgba(37,99,235,.3);overflow:hidden}
 .th-browser-bar{background:#07101F;height:20px;display:flex;align-items:center;gap:4px;padding:0 8px;border-bottom:1px solid rgba(255,255,255,.05)}
-.th-dot{width:6px;height:6px;border-radius:50%}
-.th-dot.r{background:#F43F5E}.th-dot.a{background:#FBBF24}.th-dot.g{background:#10B981}
+.th-dot{width:6px;height:6px;border-radius:50%}.th-dot.r{background:#F43F5E}.th-dot.a{background:#FBBF24}.th-dot.g{background:#10B981}
 .th-browser-body{padding:8px;display:flex;flex-direction:column;gap:5px}
 .th-brow{height:5px;border-radius:3px;background:rgba(255,255,255,.08)}
 .th-bgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-top:3px}
 .th-bblock{height:20px;border-radius:3px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.1)}
 
-/* Backend thumb */
-.th-backend{background:#060A0C;display:flex;align-items:center;justify-content:center}
-.th-terminal{width:170px;height:100px;border-radius:8px;background:#0A0E10;border:1px solid #1A2530;overflow:hidden;font-family:monospace}
-.th-term-bar{background:#111518;height:20px;display:flex;align-items:center;gap:4px;padding:0 8px;border-bottom:1px solid #1A2530}
-.th-term-title{font-size:8px;color:#3A4A5A;flex:1;text-align:center}
-.th-term-body{padding:7px 8px;display:flex;flex-direction:column;gap:4px}
-.th-line{font-size:7px;line-height:1.4;white-space:nowrap}
-.cl-green{color:#10B981}.cl-cyan{color:#06B6D4}.cl-white{color:#8A9AB5}.cl-purple{color:#A78BFA}.cl-dim{color:#3A4A5A}
+.th-ai{background:linear-gradient(135deg,#0A0612,#160826);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.th-ai-nodes{position:absolute;inset:0}
+.th-ai-center{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.th-ai-core{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4C1D95,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 24px rgba(124,58,237,.4);animation:ai-glow 2.5s ease-in-out infinite}
+@keyframes ai-glow{0%,100%{box-shadow:0 0 20px rgba(124,58,237,.4)}50%{box-shadow:0 0 36px rgba(167,139,250,.6)}}
+.th-ai-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.th-ai-ring{position:absolute;border-radius:50%;border:1px solid rgba(124,58,237,.12);animation:ring-expand 3s ease-out infinite}
+.th-ai-ring:nth-child(2){animation-delay:.8s}
+.th-ai-ring:nth-child(3){animation-delay:1.6s}
+@keyframes ring-expand{0%{width:40px;height:40px;opacity:.6}100%{width:140px;height:140px;opacity:0}}
 
-/* Payments thumb */
 .th-pay{background:linear-gradient(135deg,#060C1A,#0A1428);display:flex;align-items:center;justify-content:center;gap:10px}
 .th-paycard{width:80px;height:50px;border-radius:8px;padding:7px;box-shadow:0 4px 16px rgba(0,0,0,.6)}
 .th-paycard.gcash{background:linear-gradient(135deg,#005AE0,#003E9C)}
@@ -166,46 +160,32 @@ nav{
 .th-paycard-name{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:8px;color:#fff;opacity:.9;margin-bottom:8px}
 .th-paycard-num{font-size:6px;color:rgba(255,255,255,.5);letter-spacing:.08em}
 
-/* Design thumb */
-.th-design{background:#0A060C;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:16px}
-.th-swatch{border-radius:8px;flex-shrink:0}
+.th-qa{background:linear-gradient(135deg,#060C0A,#0A180E);display:flex;align-items:center;justify-content:center}
+.th-checklist{width:150px;display:flex;flex-direction:column;gap:5px}
+.th-check-row{display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:6px}
+.th-check-row.pass{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.12)}
+.th-check-row.fail{background:rgba(244,63,94,.06);border:1px solid rgba(244,63,94,.1)}
+.th-check-row.pend{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.th-check-icon{font-size:10px;flex-shrink:0}
+.th-check-label{font-size:9px;font-weight:600;color:rgba(255,255,255,.5)}
 
-/* Cloud thumb */
 .th-cloud{background:#060810;display:flex;align-items:center;justify-content:center}
-.th-nodes{position:relative;width:150px;height:80px}
+.th-nodes-wrap{position:relative;width:150px;height:80px}
 .th-node{position:absolute;width:28px;height:28px;border-radius:6px;background:#0D1A2E;border:1px solid rgba(37,99,235,.3);display:flex;align-items:center;justify-content:center;font-size:10px}
-.th-line-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.th-node-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 
-/* LUPAD thumb */
-.th-lupad{background:linear-gradient(135deg,#060E22,#0A1835);display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:16px;align-items:center}
-.th-lupad-dash{background:#0D1A30;border-radius:10px;padding:10px;border:1px solid rgba(37,99,235,.2)}
-.th-dash-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.th-dash-label{font-size:7px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.05em}
-.th-dash-live{font-size:7px;font-weight:700;color:#10B981;display:flex;align-items:center;gap:3px}
-.th-dash-live::before{content:"";width:4px;height:4px;border-radius:50%;background:#10B981;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.th-kpis{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px}
-.th-kpi{background:rgba(255,255,255,.04);border-radius:5px;padding:5px}
-.th-kpi-num{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:11px;color:#fff;line-height:1}
-.th-kpi-label{font-size:6px;color:rgba(255,255,255,.3);font-weight:600;margin-top:1px}
-.th-qlist{display:flex;flex-direction:column;gap:3px}
-.th-q{display:flex;align-items:center;gap:4px}
-.th-qn{font-size:7px;color:rgba(255,255,255,.4);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.th-qbar{flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;max-width:40px}
-.th-qf{height:100%;border-radius:2px}
-.f-r{background:#F43F5E}.f-a{background:#FBBF24}.f-g{background:#10B981}
-.th-qt{font-size:6px;font-weight:700;color:rgba(255,255,255,.4);width:16px;text-align:right}
-.th-lupad-phone{width:70px;height:120px;border-radius:14px;background:#06030F;border:1.5px solid #2D1B4E;overflow:hidden;margin:0 auto;box-shadow:0 8px 24px rgba(0,0,0,.8)}
-.tlp-header{background:linear-gradient(160deg,#2D1060,#5B21B6);padding:8px 6px 6px}
-.tlp-h{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:8px;color:#fff;margin-bottom:4px}
-.tlp-card{background:rgba(255,255,255,.1);border-radius:5px;padding:5px}
-.tlp-ride{font-size:7px;font-weight:700;color:#fff;margin-bottom:2px}
-.tlp-cnt{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:16px;color:#A78BFA;line-height:1}
-.tlp-body{padding:5px 6px;display:flex;flex-direction:column;gap:3px}
-.tlp-row{display:flex;align-items:center;gap:4px;padding:3px 4px;background:rgba(255,255,255,.04);border-radius:4px}
-.tlp-icon{font-size:8px}
-.tlp-name{font-size:6px;color:rgba(255,255,255,.6);flex:1}
-.tlp-wait{font-size:6px;font-weight:700;padding:1px 3px;border-radius:2px}
+/* PROCESS */
+.process-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+@media(max-width:800px){.process-row{grid-template-columns:1fr;gap:0}}
+.process-step{padding:28px 20px;border-left:1px solid var(--border);position:relative}
+.process-step:first-child{border-left:none}
+@media(max-width:800px){.process-step{border-left:none;border-top:1px solid var(--border);padding:20px 0}}
+@media(max-width:800px){.process-step:first-child{border-top:none}}
+.ps-num{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:11px;color:var(--text-3);margin-bottom:12px;letter-spacing:.04em}
+.ps-icon{font-size:22px;margin-bottom:10px}
+.ps-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:6px}
+.ps-desc{font-size:12px;color:var(--text-2);line-height:1.55}
+.ps-wilfred{background:rgba(16,185,129,.06);border-radius:5px;padding:4px 8px;font-size:10px;font-weight:700;color:var(--green);margin-top:8px;display:inline-block}
 
 /* WORK LARGE CARDS */
 .work-card-lg{background:var(--s1);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:default;transition:border-color .2s,transform .2s}
@@ -213,61 +193,67 @@ nav{
 .work-thumb-lg{width:100%;aspect-ratio:16/8;position:relative;overflow:hidden}
 .work-body-lg{padding:22px 24px}
 
+/* Animated LUPAD dashboard (work card) */
+.th-lupad-anim{background:linear-gradient(135deg,#060E22,#0A1835);padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center}
+.lad-dash{background:#0D1A30;border-radius:10px;padding:10px;border:1px solid rgba(37,99,235,.2)}
+.lad-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.lad-title{font-size:7px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.05em;text-transform:uppercase}
+.lad-live{font-size:7px;font-weight:700;color:var(--green);display:flex;align-items:center;gap:3px}
+.lad-live::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+.lad-kpis{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px}
+.lad-kpi{background:rgba(255,255,255,.04);border-radius:5px;padding:5px 6px}
+.lad-knum{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:12px;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+.lad-klbl{font-size:6px;color:rgba(255,255,255,.3);font-weight:600;margin-top:1px}
+.lad-qlbl{font-size:7px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);margin-bottom:5px}
+.lad-q{display:flex;align-items:center;gap:5px;margin-bottom:4px}
+.lad-q:last-child{margin-bottom:0}
+.lad-qname{font-size:7px;color:rgba(255,255,255,.45);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lad-qtrack{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;max-width:50px}
+.lad-qfill{height:100%;border-radius:2px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+.lad-qtime{font-size:7px;font-weight:700;color:#fff;width:20px;text-align:right;font-variant-numeric:tabular-nums}
+.lad-phone{width:68px;height:116px;border-radius:14px;background:#06030F;border:1.5px solid #2D1B4E;overflow:hidden;margin:0 auto;box-shadow:0 8px 24px rgba(0,0,0,.8)}
+.lap-header{background:linear-gradient(160deg,#2D1060,#5B21B6);padding:7px 6px 5px}
+.lap-h{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:7px;color:#fff;margin-bottom:3px}
+.lap-card{background:rgba(255,255,255,.1);border-radius:4px;padding:4px 5px}
+.lap-ride{font-size:6px;font-weight:700;color:#fff;margin-bottom:1px}
+.lap-cnt{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:14px;color:#A78BFA;line-height:1;font-variant-numeric:tabular-nums}
+.lap-body{padding:4px 6px;display:flex;flex-direction:column;gap:3px}
+.lap-row{display:flex;align-items:center;gap:3px;padding:2px 3px;background:rgba(255,255,255,.04);border-radius:3px}
+.lap-icon{font-size:7px}
+.lap-name{font-size:5px;color:rgba(255,255,255,.6);flex:1}
+.lap-wait{font-size:6px;font-weight:700;padding:1px 3px;border-radius:2px}
+
 /* TEAM */
 .team-card{background:var(--s1);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:default;transition:border-color .2s}
 .team-card:hover{border-color:rgba(124,58,237,.4)}
-.team-card.lead{border-color:rgba(124,58,237,.25)}
+.team-card.cofounder{border-color:rgba(16,185,129,.2)}
+.team-card.cofounder:hover{border-color:rgba(16,185,129,.4)}
 .team-visual{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative}
 .av-block{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:24px}
 .av-purple{background:linear-gradient(135deg,#4C1D95,#7C3AED)}
-.av-teal{background:linear-gradient(135deg,#0E4E5A,#0891B2)}
 .av-green{background:linear-gradient(135deg,#064E3B,#059669)}
+.av-teal{background:linear-gradient(135deg,#0E4E5A,#0891B2)}
 .av-indigo{background:linear-gradient(135deg,#1E1B4B,#4338CA)}
-.team-bg-purple{background:linear-gradient(135deg,#0D0520,#160A30)}
-.team-bg-teal{background:linear-gradient(135deg,#060E10,#0A1A1E)}
-.team-bg-green{background:linear-gradient(135deg,#060E0A,#0A1A0F)}
-.team-bg-indigo{background:linear-gradient(135deg,#06060E,#0C0C20)}
+.av-rose{background:linear-gradient(135deg,#4C0519,#BE123C)}
+.tbg-purple{background:linear-gradient(135deg,#0D0520,#160A30)}
+.tbg-green{background:linear-gradient(135deg,#060E0A,#0A1A0F)}
+.tbg-teal{background:linear-gradient(135deg,#060E10,#0A1A1E)}
+.tbg-indigo{background:linear-gradient(135deg,#06060E,#0C0C20)}
+.tbg-rose{background:linear-gradient(135deg,#0E0608,#1A060C)}
 .team-body{padding:16px 18px 18px;border-top:1px solid var(--border)}
 .team-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:3px}
-.team-role{font-size:12px;font-weight:600;color:var(--violet);margin-bottom:8px}
+.team-role{font-size:12px;font-weight:600;margin-bottom:8px}
+.tr-purple{color:var(--violet)}.tr-green{color:var(--green)}.tr-cyan{color:var(--cyan)}.tr-indigo{color:#818CF8}.tr-rose{color:#FB7185}
 .team-bio{font-size:12px;color:var(--text-2);line-height:1.55;margin-bottom:12px}
 .team-stack{display:flex;flex-wrap:wrap;gap:4px}
 .stech{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:10px;font-weight:600;color:var(--text-2)}
-.founder-pill{position:absolute;top:12px;right:12px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--violet)}
+.role-pill{position:absolute;top:12px;right:12px;border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.rp-founder{background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:var(--violet)}
+.rp-cofounder{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:var(--green)}
 
-/* CTA */
-.cta-block{border-top:1px solid var(--border);padding:80px max(24px,env(safe-area-inset-left,0px));text-align:center;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(124,58,237,.08) 0%,transparent 70%)}
-.cta-block h2{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(32px,5vw,60px);color:#fff;letter-spacing:-.03em;margin-bottom:14px;text-wrap:balance}
-.cta-block h2 span{color:var(--violet)}
-.cta-block p{font-size:15px;color:var(--text-2);max-width:380px;margin:0 auto 28px;line-height:1.65}
-.cta-email{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:9px;padding:11px 18px;font-size:14px;color:var(--text);cursor:text;user-select:text}
-.cta-email strong{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}
-
-/* ── ANIMATIONS ──────────────────────────────────── */
-/* Scroll reveal */
-[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
-[data-reveal].revealed{opacity:1;transform:none}
-[data-reveal][data-delay="1"]{transition-delay:.08s}
-[data-reveal][data-delay="2"]{transition-delay:.16s}
-[data-reveal][data-delay="3"]{transition-delay:.24s}
-[data-reveal][data-delay="4"]{transition-delay:.32s}
-[data-reveal][data-delay="5"]{transition-delay:.40s}
-[data-reveal][data-delay="6"]{transition-delay:.48s}
-
-/* Hero text stagger */
-.hero-h1 span{display:block;opacity:0;transform:translateY(32px);animation:heroLine .7s cubic-bezier(.22,1,.36,1) forwards}
-.hero-h1 span:nth-child(1){animation-delay:.1s}
-.hero-h1 span:nth-child(2){animation-delay:.22s}
-.hero-h1 span:nth-child(3){animation-delay:.34s}
-@keyframes heroLine{to{opacity:1;transform:none}}
-.hero-eyebrow{opacity:0;animation:heroLine .6s cubic-bezier(.22,1,.36,1) .02s forwards}
-.hero-sub-row{opacity:0;animation:heroLine .6s cubic-bezier(.22,1,.36,1) .48s forwards}
-
-/* Nav slide in */
-nav{animation:navIn .5s cubic-bezier(.22,1,.36,1) forwards}
-@keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-
-/* Marquee */
+/* MARQUEE */
+.stack-sec{border-top:1px solid var(--border);padding:36px max(24px,env(safe-area-inset-left,0px))}
+.stack-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:20px}
 .marquee-wrap{overflow:hidden;position:relative}
 .marquee-wrap::before,.marquee-wrap::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
 .marquee-wrap::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
@@ -277,18 +263,15 @@ nav{animation:navIn .5s cubic-bezier(.22,1,.36,1) forwards}
 .marquee-item{padding:9px 22px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text-2);border-right:1px solid var(--border);white-space:nowrap;letter-spacing:.02em;transition:color .2s}
 .marquee-item:hover{color:var(--violet)}
 
-/* Stack section */
-.stack-sec{border-top:1px solid var(--border);padding:36px max(24px,env(safe-area-inset-left,0px))}
-.stack-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:20px}
-
-/* Gradient orb on CTA */
-@keyframes orb{0%,100%{transform:scale(1) translate(0,0)}50%{transform:scale(1.08) translate(10px,-8px)}}
-.cta-block{position:relative;overflow:hidden}
-.cta-block::before{content:"";position:absolute;top:-40%;left:50%;width:600px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(124,58,237,.12) 0%,transparent 65%);transform:translateX(-50%);animation:orb 8s ease-in-out infinite;pointer-events:none}
-
-/* Card thumb shimmer on hover */
-.card:hover .card-thumb,.work-card-lg:hover .work-thumb-lg{filter:brightness(1.06)}
-.card .card-thumb,.work-card-lg .work-thumb-lg{transition:filter .3s}
+/* CTA */
+.cta-block{border-top:1px solid var(--border);padding:80px max(24px,env(safe-area-inset-left,0px));text-align:center;position:relative;overflow:hidden}
+.cta-block::before{content:"";position:absolute;top:-40%;left:50%;width:600px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(124,58,237,.1),transparent 65%);transform:translateX(-50%);animation:orb 8s ease-in-out infinite;pointer-events:none}
+@keyframes orb{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.08) translateY(-8px)}}
+.cta-block h2{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(32px,5vw,60px);color:#fff;letter-spacing:-.03em;margin-bottom:14px;text-wrap:balance;position:relative}
+.cta-block h2 span{color:var(--violet)}
+.cta-block p{font-size:15px;color:var(--text-2);max-width:380px;margin:0 auto 28px;line-height:1.65;position:relative}
+.cta-email{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:9px;padding:11px 18px;font-size:14px;color:var(--text);cursor:text;user-select:text;position:relative}
+.cta-email strong{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff}
 
 /* FOOTER */
 footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-inset-left,0px)) 32px}
@@ -305,9 +288,28 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
 .footer-link:hover{color:var(--text)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .footer-copy{font-size:12px;color:var(--text-3)}
-.footer-legal{display:flex;gap:16px;flex-wrap:wrap}
-.footer-legal a{font-size:12px;color:var(--text-3);cursor:pointer;transition:color .18s}
+.footer-legal{display:flex;gap:16px}.footer-legal a{font-size:12px;color:var(--text-3);cursor:pointer;transition:color .18s}
 .footer-legal a:hover{color:var(--text-2)}
+
+/* SCROLL REVEAL */
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+[data-reveal].revealed{opacity:1;transform:none}
+[data-reveal][data-delay="1"]{transition-delay:.08s}[data-reveal][data-delay="2"]{transition-delay:.16s}
+[data-reveal][data-delay="3"]{transition-delay:.24s}[data-reveal][data-delay="4"]{transition-delay:.32s}
+[data-reveal][data-delay="5"]{transition-delay:.40s}[data-reveal][data-delay="6"]{transition-delay:.48s}
+
+/* HERO ANIMATION */
+.hero-left>*{opacity:0;animation:slideUp .65s cubic-bezier(.22,1,.36,1) forwards}
+.hero-eyebrow{animation-delay:.05s}.hero-h1{animation-delay:.15s}.hero-p{animation-delay:.25s}
+.hero-actions{animation-delay:.32s}.hero-stats{animation-delay:.4s}
+.hero-dash{opacity:0;animation:slideUp .7s cubic-bezier(.22,1,.36,1) .2s forwards}
+@keyframes slideUp{to{opacity:1;transform:none}}
+nav{animation:navIn .5s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* CARD HOVER BRIGHTNESS */
+.card:hover .card-thumb,.work-card-lg:hover .work-thumb-lg{filter:brightness(1.07)}
+.card .card-thumb,.work-card-lg .work-thumb-lg{transition:filter .3s}
 </style>
 
 <!-- NAV -->
@@ -317,6 +319,7 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
     <div class="nav-links">
       <a class="nav-link" href="#services">Services</a>
       <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="#process">Process</a>
       <a class="nav-link" href="#team">Team</a>
     </div>
     <a class="nav-cta" href="#contact">Start a project</a>
@@ -324,44 +327,151 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">Software Engineering Studio · Misamis Oriental, PH</div>
-  <div class="hero-h1">
-    <span>if you can</span>
-    <span class="grad">think it,</span>
-    <span class="dim">it's yours.</span>
-  </div>
-  <div class="hero-sub-row">
-    <p class="hero-desc">We design, build, and ship full-stack platforms for Philippine businesses — mobile apps, web systems, and real-time operations, end to end.</p>
-    <div class="hero-stats">
-      <div><div class="hstat-num">12<span>+</span></div><div class="hstat-label">Projects shipped</div></div>
-      <div><div class="hstat-num">5<span>+</span></div><div class="hstat-label">Years engineering</div></div>
-      <div><div class="hstat-num">0</div><div class="hstat-label">Missed deadlines</div></div>
+<section style="border-bottom:1px solid var(--border)">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Software &amp; AI Company · Misamis Oriental, PH</div>
+      <div class="hero-h1">
+        <span>We build</span>
+        <span class="grad">things that</span>
+        <span class="dim">matter.</span>
+      </div>
+      <p class="hero-p">Mine Labs is a software engineering and AI company. We design, build, and ship full-stack platforms — from mobile apps to real-time operational systems — with a team that has never missed a deadline and never ships until it's perfect.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#work">See our work</a>
+        <a class="btn-ghost" href="#team">Meet the team</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hstat-num" data-count="12" data-suffix="+">12+</div><div class="hstat-label">Projects shipped</div></div>
+        <div><div class="hstat-num" data-count="5" data-suffix="+">5+</div><div class="hstat-label">Years engineering</div></div>
+        <div><div class="hstat-num" data-count="0" data-suffix="">0</div><div class="hstat-label">Missed deadlines</div></div>
+        <div><div class="hstat-num" data-count="100" data-suffix="%">100%</div><div class="hstat-label">QA before ship</div></div>
+      </div>
+    </div>
+
+    <!-- LIVE ANIMATED DASHBOARD -->
+    <div class="hero-dash" id="heroDash">
+      <div class="hd-topbar">
+        <div class="hd-title">LUPAD Ops Dashboard</div>
+        <div class="hd-live">LIVE</div>
+      </div>
+      <div class="hd-body">
+        <div class="hd-kpis">
+          <div class="hd-kpi">
+            <div class="hd-kpi-val" id="kpi-guests">1,842</div>
+            <div class="hd-kpi-lbl">Guests</div>
+            <div class="hd-kpi-delta delta-up" id="kpi-guests-d">+12</div>
+          </div>
+          <div class="hd-kpi">
+            <div class="hd-kpi-val" id="kpi-rev">₱284K</div>
+            <div class="hd-kpi-lbl">Revenue</div>
+            <div class="hd-kpi-delta delta-up" id="kpi-rev-d">+₱3.2K</div>
+          </div>
+          <div class="hd-kpi">
+            <div class="hd-kpi-val" id="kpi-wait">27m</div>
+            <div class="hd-kpi-lbl">Avg Wait</div>
+            <div class="hd-kpi-delta delta-dn" id="kpi-wait-d">-2m</div>
+          </div>
+          <div class="hd-kpi">
+            <div class="hd-kpi-val" id="kpi-cashless">64%</div>
+            <div class="hd-kpi-lbl">Cashless</div>
+            <div class="hd-kpi-delta delta-up" id="kpi-cashless-d">+1%</div>
+          </div>
+        </div>
+        <div class="hd-section-label">Queue Depths</div>
+        <div class="hd-queues">
+          <div class="hd-q">
+            <div class="hd-q-name">🎢 Roller Coaster</div>
+            <div class="hd-q-track"><div class="hd-q-fill" id="q1" style="width:85%;background:#F43F5E"></div></div>
+            <div class="hd-q-time" id="qt1">42m</div>
+          </div>
+          <div class="hd-q">
+            <div class="hd-q-name">🗼 Flying Tower</div>
+            <div class="hd-q-track"><div class="hd-q-fill" id="q2" style="width:70%;background:#FBBF24"></div></div>
+            <div class="hd-q-time" id="qt2">35m</div>
+          </div>
+          <div class="hd-q">
+            <div class="hd-q-name">❄️ Snow World</div>
+            <div class="hd-q-track"><div class="hd-q-fill" id="q3" style="width:45%;background:#FBBF24"></div></div>
+            <div class="hd-q-time" id="qt3">22m</div>
+          </div>
+          <div class="hd-q">
+            <div class="hd-q-name">🎡 Ferris Wheel</div>
+            <div class="hd-q-track"><div class="hd-q-fill" id="q4" style="width:18%;background:#10B981"></div></div>
+            <div class="hd-q-time" id="qt4">8m</div>
+          </div>
+          <div class="hd-q">
+            <div class="hd-q-name">🎠 Carousel</div>
+            <div class="hd-q-track"><div class="hd-q-fill" id="q5" style="width:30%;background:#10B981"></div></div>
+            <div class="hd-q-time" id="qt5">12m</div>
+          </div>
+        </div>
+        <div class="hd-revenue-row">
+          <div class="hd-rev-card">
+            <div class="hd-rev-label">Food &amp; Bev</div>
+            <div class="hd-rev-val" id="rev-fb">₱72K</div>
+            <div class="hd-rev-bar" id="rev-fb-bar" style="width:60%;background:var(--cyan)"></div>
+          </div>
+          <div class="hd-rev-card">
+            <div class="hd-rev-label">Express Pass</div>
+            <div class="hd-rev-val" id="rev-ep">₱48K</div>
+            <div class="hd-rev-bar" id="rev-ep-bar" style="width:40%;background:var(--violet)"></div>
+          </div>
+          <div class="hd-rev-card">
+            <div class="hd-rev-label">Merch</div>
+            <div class="hd-rev-val" id="rev-mc">₱19K</div>
+            <div class="hd-rev-bar" id="rev-mc-bar" style="width:16%;background:var(--pink)"></div>
+          </div>
+        </div>
+        <div class="hd-ai-chip">
+          <div class="hd-ai-dot"></div>
+          <div class="hd-ai-text" id="ai-insight">AI: Predict 15% queue surge at Roller Coaster in 20 min</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-inner">
+    <div>
+      <div class="about-quote-mark">"</div>
+      <div class="about-quote">We've always been builders. We don't just write code — we create things for people. And nothing goes out the door unless it's perfect.</div>
+      <div class="about-attr"><strong>Marissa Oco &amp; Wilfred Soriaga</strong> — Co-founders, Mine Labs</div>
+    </div>
+    <div class="about-bullets">
+      <div class="about-bullet">
+        <div class="ab-icon">🏗</div>
+        <div><div class="ab-title">We're builders first</div><div class="ab-desc">Every feature we ship started as something we imagined for real people. Product thinking is in everything we do.</div></div>
+      </div>
+      <div class="about-bullet">
+        <div class="ab-icon">✅</div>
+        <div><div class="ab-title">QA is non-negotiable</div><div class="ab-desc">Wilfred leads quality and customer experience. Nothing leaves without his sign-off. That's not a process — it's a promise.</div></div>
+      </div>
+      <div class="about-bullet">
+        <div class="ab-icon">🤖</div>
+        <div><div class="ab-title">AI-native from day one</div><div class="ab-desc">We build AI into the foundation — intelligent dashboards, predictive queue management, and AI-assisted ops tools.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section class="sec" id="services">
   <div class="sec-inner">
     <div class="sec-head">
       <div class="sec-title">What we <span>build</span></div>
-      <div class="sec-meta">6 services · full stack</div>
+      <div class="sec-meta">6 services · full stack + AI</div>
     </div>
     <div class="grid-3">
 
       <div class="card" data-reveal data-delay="1">
         <div class="card-thumb th-mobile">
-          <div class="th-phone">
-            <div class="th-phone-screen">
-              <div class="th-pbar a"></div>
-              <div class="th-pbar b"></div>
-              <div class="th-pcard">
-                <div class="th-pcnum">24m</div>
-                <div class="th-pclabel">Queue wait</div>
-              </div>
-            </div>
-          </div>
+          <div class="th-phone"><div class="th-phone-screen">
+            <div class="th-pbar" style="width:80%"></div><div class="th-pbar" style="width:60%"></div>
+            <div class="th-pcard"><div class="th-pcnum">24m</div><div class="th-pclabel">Queue wait</div></div>
+          </div></div>
         </div>
         <div class="card-body">
           <div class="card-tags"><span class="tag purple">Core strength</span><span class="tag">iOS · Android</span></div>
@@ -373,19 +483,11 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
       <div class="card" data-reveal data-delay="2">
         <div class="card-thumb th-web">
           <div class="th-browser">
-            <div class="th-browser-bar">
-              <div class="th-dot r"></div><div class="th-dot a"></div><div class="th-dot g"></div>
-            </div>
+            <div class="th-browser-bar"><div class="th-dot r"></div><div class="th-dot a"></div><div class="th-dot g"></div></div>
             <div class="th-browser-body">
-              <div class="th-brow" style="width:90%"></div>
-              <div class="th-brow" style="width:60%"></div>
-              <div class="th-bgrid">
-                <div class="th-bblock"></div>
-                <div class="th-bblock" style="background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.1)"></div>
-                <div class="th-bblock"></div>
-              </div>
-              <div class="th-brow" style="width:80%;margin-top:4px"></div>
-              <div class="th-brow" style="width:40%"></div>
+              <div class="th-brow" style="width:90%"></div><div class="th-brow" style="width:60%"></div>
+              <div class="th-bgrid"><div class="th-bblock"></div><div class="th-bblock" style="background:rgba(6,182,212,.1)"></div><div class="th-bblock"></div></div>
+              <div class="th-brow" style="width:80%;margin-top:4px"></div><div class="th-brow" style="width:40%"></div>
             </div>
           </div>
         </div>
@@ -397,101 +499,121 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
       </div>
 
       <div class="card" data-reveal data-delay="3">
-        <div class="card-thumb th-backend">
-          <div class="th-terminal">
-            <div class="th-term-bar">
-              <div class="th-dot r"></div><div class="th-dot a"></div><div class="th-dot g"></div>
-              <span class="th-term-title">api-server</span>
-            </div>
-            <div class="th-term-body">
-              <div class="th-line"><span class="cl-green">✓</span> <span class="cl-white">POST /queue/join</span> <span class="cl-dim">12ms</span></div>
-              <div class="th-line"><span class="cl-cyan">→</span> <span class="cl-white">Redis LPUSH</span> <span class="cl-purple">queue:rc</span></div>
-              <div class="th-line"><span class="cl-green">✓</span> <span class="cl-white">GET /wallet/balance</span> <span class="cl-dim">8ms</span></div>
-              <div class="th-line"><span class="cl-cyan">→</span> <span class="cl-white">pg.query</span> <span class="cl-dim">users</span></div>
-              <div class="th-line"><span class="cl-green">✓</span> <span class="cl-white">WebSocket</span> <span class="cl-dim">+1 conn</span></div>
-            </div>
+        <div class="card-thumb th-ai" style="min-height:160px">
+          <div class="th-ai-rings">
+            <div class="th-ai-ring"></div><div class="th-ai-ring"></div><div class="th-ai-ring"></div>
+          </div>
+          <div class="th-ai-center">
+            <div class="th-ai-core">🤖</div>
+            <div style="font-size:9px;font-weight:700;color:var(--violet);letter-spacing:.05em;text-transform:uppercase">AI Engine</div>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-tags"><span class="tag">Node.js</span><span class="tag">Go</span><span class="tag">Redis</span><span class="tag">PostgreSQL</span></div>
-          <div class="card-title">Backend &amp; API Architecture</div>
-          <div class="card-desc">Scalable REST and real-time APIs built for PH infrastructure — burst load, spotty connectivity, strict uptime.</div>
+          <div class="card-tags"><span class="tag ai">AI-native</span><span class="tag">Predictive</span><span class="tag">LLM</span></div>
+          <div class="card-title">AI &amp; Intelligent Systems</div>
+          <div class="card-desc">Predictive analytics, AI-driven queue management, smart dashboards, and LLM-powered features built into your product from day one.</div>
         </div>
       </div>
 
       <div class="card" data-reveal data-delay="4">
         <div class="card-thumb th-pay">
-          <div class="th-paycard gcash">
-            <div class="th-paycard-name">GCash</div>
-            <div class="th-paycard-num">•••• 4821</div>
-          </div>
+          <div class="th-paycard gcash"><div class="th-paycard-name">GCash</div><div class="th-paycard-num">•••• 4821</div></div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            <div class="th-paycard maya" style="width:70px;height:40px;border-radius:7px;padding:5px">
-              <div class="th-paycard-name">Maya</div>
-              <div class="th-paycard-num">•••• 7342</div>
-            </div>
-            <div class="th-paycard qrph" style="width:70px;height:40px;border-radius:7px;padding:5px">
-              <div class="th-paycard-name">QR Ph</div>
-              <div class="th-paycard-num">InstaPay</div>
-            </div>
+            <div class="th-paycard maya" style="width:70px;height:40px;border-radius:7px;padding:5px"><div class="th-paycard-name">Maya</div><div class="th-paycard-num">•••• 7342</div></div>
+            <div class="th-paycard qrph" style="width:70px;height:40px;border-radius:7px;padding:5px"><div class="th-paycard-name">QR Ph</div><div class="th-paycard-num">InstaPay</div></div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-tags"><span class="tag purple">PH-native</span><span class="tag">PCI-DSS</span><span class="tag">BSP</span></div>
           <div class="card-title">Philippine Payment Integration</div>
-          <div class="card-desc">Direct GCash, Maya, and QR Ph integration with BSP e-money compliance. No middleware, no delays.</div>
+          <div class="card-desc">Direct GCash, Maya, and QR Ph integration with BSP compliance. No middleware, no delays.</div>
         </div>
       </div>
 
       <div class="card" data-reveal data-delay="5">
-        <div class="card-thumb th-design">
-          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
-            <div style="display:flex;gap:5px">
-              <div class="th-swatch" style="width:32px;height:32px;background:#7C3AED"></div>
-              <div class="th-swatch" style="width:32px;height:32px;background:#A78BFA"></div>
-              <div class="th-swatch" style="width:32px;height:32px;background:#E879F9"></div>
-              <div class="th-swatch" style="width:32px;height:32px;background:#1A1A2E"></div>
-            </div>
-            <div style="width:120px;height:5px;background:linear-gradient(90deg,#7C3AED,#E879F9);border-radius:3px"></div>
-            <div style="display:flex;gap:5px;align-items:center">
-              <div style="width:40px;height:40px;border-radius:10px;background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.3)"></div>
-              <div style="display:flex;flex-direction:column;gap:4px">
-                <div style="width:60px;height:4px;background:rgba(255,255,255,.12);border-radius:2px"></div>
-                <div style="width:45px;height:4px;background:rgba(255,255,255,.07);border-radius:2px"></div>
-              </div>
-            </div>
+        <div class="card-thumb th-qa">
+          <div class="th-checklist">
+            <div class="th-check-row pass"><span class="th-check-icon">✅</span><span class="th-check-label">Functional testing</span></div>
+            <div class="th-check-row pass"><span class="th-check-icon">✅</span><span class="th-check-label">Payment flow audit</span></div>
+            <div class="th-check-row pass"><span class="th-check-icon">✅</span><span class="th-check-label">Offline sync test</span></div>
+            <div class="th-check-row pass"><span class="th-check-icon">✅</span><span class="th-check-label">Load test 10K users</span></div>
+            <div class="th-check-row pend"><span class="th-check-icon">⏳</span><span class="th-check-label">Client sign-off</span></div>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-tags"><span class="tag">Figma</span><span class="tag">BRD · PRD</span><span class="tag">Prototype</span></div>
-          <div class="card-title">Product Design &amp; Prototyping</div>
-          <div class="card-desc">High-fidelity interactive prototypes before a single line of code is written.</div>
+          <div class="card-tags"><span class="tag green">Wilfred-led</span><span class="tag">QA · CX</span></div>
+          <div class="card-title">Quality Assurance &amp; CX</div>
+          <div class="card-desc">Nothing ships without Wilfred's sign-off. Functional testing, load testing, UX review, and client satisfaction — every time.</div>
         </div>
       </div>
 
       <div class="card" data-reveal data-delay="6">
         <div class="card-thumb th-cloud">
-          <div class="th-nodes">
-            <svg class="th-line-svg" viewBox="0 0 150 80">
+          <div class="th-nodes-wrap">
+            <svg class="th-node-svg" viewBox="0 0 150 80">
               <line x1="75" y1="40" x2="20" y2="12" stroke="rgba(124,58,237,.3)" stroke-width="1" stroke-dasharray="3,3"/>
               <line x1="75" y1="40" x2="130" y2="12" stroke="rgba(124,58,237,.3)" stroke-width="1" stroke-dasharray="3,3"/>
               <line x1="75" y1="40" x2="20" y2="68" stroke="rgba(6,182,212,.2)" stroke-width="1" stroke-dasharray="3,3"/>
               <line x1="75" y1="40" x2="130" y2="68" stroke="rgba(6,182,212,.2)" stroke-width="1" stroke-dasharray="3,3"/>
             </svg>
             <div class="th-node" style="top:26px;left:60px;border-color:rgba(124,58,237,.4);background:#120A2A">☁️</div>
-            <div class="th-node" style="top:0;left:4px;border-color:rgba(37,99,235,.3)">🗄</div>
-            <div class="th-node" style="top:0;right:4px;border-color:rgba(37,99,235,.3)">🗄</div>
-            <div class="th-node" style="bottom:0;left:4px;border-color:rgba(6,182,212,.2)">📱</div>
-            <div class="th-node" style="bottom:0;right:4px;border-color:rgba(6,182,212,.2)">🌐</div>
+            <div class="th-node" style="top:0;left:4px">🗄</div><div class="th-node" style="top:0;right:4px">🗄</div>
+            <div class="th-node" style="bottom:0;left:4px;border-color:rgba(6,182,212,.2)">📱</div><div class="th-node" style="bottom:0;right:4px;border-color:rgba(6,182,212,.2)">🌐</div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Singapore</span></div>
-          <div class="card-title">Cloud Infrastructure &amp; DevOps</div>
-          <div class="card-desc">AWS ap-southeast-1 with CI/CD pipelines, auto-scaling, and 99.5% uptime SLA monitoring.</div>
+          <div class="card-title">Cloud &amp; DevOps</div>
+          <div class="card-desc">AWS ap-southeast-1 with CI/CD, auto-scaling, and 99.5% uptime SLA monitoring.</div>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process" style="background:var(--s1)">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">How we work</div>
+        <div class="sec-title">From idea to <span>in production</span></div>
+      </div>
+      <div class="sec-meta">Every project, every time</div>
+    </div>
+    <div class="process-row" data-reveal>
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <div class="ps-icon">🔭</div>
+        <div class="ps-title">Discover</div>
+        <div class="ps-desc">We document every requirement in a BRD and PRD before writing code. You approve what gets built.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <div class="ps-icon">🎨</div>
+        <div class="ps-title">Design</div>
+        <div class="ps-desc">High-fidelity interactive prototypes. You see the real product before we build it.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <div class="ps-icon">⚡</div>
+        <div class="ps-title">Build</div>
+        <div class="ps-desc">We build in sprints with weekly demos. No surprises at launch — you watch it being built.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">04</div>
+        <div class="ps-icon">🔬</div>
+        <div class="ps-title">QA</div>
+        <div class="ps-desc">Wilfred leads a full QA cycle — functional, load, payment flow, and CX review.</div>
+        <div class="ps-wilfred">Wilfred-certified ✓</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">05</div>
+        <div class="ps-icon">🚀</div>
+        <div class="ps-title">Ship</div>
+        <div class="ps-desc">We deploy, monitor the first 24 hours live, and stay on call. We don't disappear at launch.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -506,49 +628,34 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
     <div class="grid-2">
 
       <div class="work-card-lg" data-reveal data-delay="1">
-        <div class="work-thumb-lg th-lupad">
-          <div class="th-lupad-dash">
-            <div class="th-dash-row">
-              <span class="th-dash-label">Ops Dashboard</span>
-              <span class="th-dash-live">LIVE</span>
+        <div class="work-thumb-lg th-lupad-anim">
+          <div class="lad-dash">
+            <div class="lad-topbar"><span class="lad-title">Ops Dashboard</span><span class="lad-live">LIVE</span></div>
+            <div class="lad-kpis">
+              <div class="lad-kpi"><div class="lad-knum" id="wk1">1,842</div><div class="lad-klbl">Guests</div></div>
+              <div class="lad-kpi"><div class="lad-knum" id="wk2">₱284K</div><div class="lad-klbl">Revenue</div></div>
+              <div class="lad-kpi"><div class="lad-knum" id="wk3">27m</div><div class="lad-klbl">Avg Wait</div></div>
+              <div class="lad-kpi"><div class="lad-knum" id="wk4">64%</div><div class="lad-klbl">Cashless</div></div>
             </div>
-            <div class="th-kpis">
-              <div class="th-kpi"><div class="th-kpi-num">1,842</div><div class="th-kpi-label">Guests</div></div>
-              <div class="th-kpi"><div class="th-kpi-num">₱284K</div><div class="th-kpi-label">Revenue</div></div>
-              <div class="th-kpi"><div class="th-kpi-num">27m</div><div class="th-kpi-label">Avg Wait</div></div>
-              <div class="th-kpi"><div class="th-kpi-num">64%</div><div class="th-kpi-label">Cashless</div></div>
-            </div>
-            <div class="th-qlist">
-              <div class="th-q"><span class="th-qn">🎢 Roller Coaster</span><div class="th-qbar"><div class="th-qf f-r" style="width:85%"></div></div><span class="th-qt">42m</span></div>
-              <div class="th-q"><span class="th-qn">🗼 Flying Tower</span><div class="th-qbar"><div class="th-qf f-a" style="width:65%"></div></div><span class="th-qt">35m</span></div>
-              <div class="th-q"><span class="th-qn">🎡 Ferris Wheel</span><div class="th-qbar"><div class="th-qf f-g" style="width:18%"></div></div><span class="th-qt">8m</span></div>
-            </div>
+            <div class="lad-qlbl">Queues</div>
+            <div class="lad-q"><span class="lad-qname">🎢 Roller Coaster</span><div class="lad-qtrack"><div class="lad-qfill" id="wq1" style="width:85%;background:#F43F5E"></div></div><span class="lad-qtime" id="wqt1">42m</span></div>
+            <div class="lad-q"><span class="lad-qname">🗼 Flying Tower</span><div class="lad-qtrack"><div class="lad-qfill" id="wq2" style="width:65%;background:#FBBF24"></div></div><span class="lad-qtime" id="wqt2">35m</span></div>
+            <div class="lad-q"><span class="lad-qname">🎡 Ferris Wheel</span><div class="lad-qtrack"><div class="lad-qfill" id="wq3" style="width:18%;background:#10B981"></div></div><span class="lad-qtime" id="wqt3">8m</span></div>
           </div>
-          <div class="th-lupad-phone">
-            <div class="tlp-header">
-              <div class="tlp-h">My Queue</div>
-              <div class="tlp-card">
-                <div class="tlp-ride">🎢 Roller Coaster</div>
-                <div class="tlp-cnt">18m</div>
-              </div>
-            </div>
-            <div class="tlp-body">
-              <div class="tlp-row"><div class="tlp-icon">🎡</div><div class="tlp-name">Ferris Wheel</div><div class="tlp-wait" style="background:rgba(16,185,129,.12);color:#10B981">8m</div></div>
-              <div class="tlp-row"><div class="tlp-icon">❄️</div><div class="tlp-name">Snow World</div><div class="tlp-wait" style="background:rgba(251,191,36,.12);color:#FBBF24">22m</div></div>
-              <div class="tlp-row"><div class="tlp-icon">🗼</div><div class="tlp-name">Flying Tower</div><div class="tlp-wait" style="background:rgba(244,63,94,.12);color:#F43F5E">35m</div></div>
+          <div class="lad-phone">
+            <div class="lap-header"><div class="lap-h">My Queue</div><div class="lap-card"><div class="lap-ride">🎢 Roller Coaster</div><div class="lap-cnt" id="lap-cnt">18m</div></div></div>
+            <div class="lap-body">
+              <div class="lap-row"><div class="lap-icon">🎡</div><div class="lap-name">Ferris Wheel</div><div class="lap-wait" style="background:rgba(16,185,129,.12);color:#10B981">8m</div></div>
+              <div class="lap-row"><div class="lap-icon">❄️</div><div class="lap-name">Snow World</div><div class="lap-wait" style="background:rgba(251,191,36,.12);color:#FBBF24">22m</div></div>
+              <div class="lap-row"><div class="lap-icon">🗼</div><div class="lap-name">Flying Tower</div><div class="lap-wait" style="background:rgba(244,63,94,.12);color:#F43F5E">35m</div></div>
             </div>
           </div>
         </div>
         <div class="work-body-lg">
-          <div class="card-tags">
-            <span class="tag green">Live</span>
-            <span class="tag">Queue &amp; Revenue Platform</span>
-          </div>
+          <div class="card-tags"><span class="tag green">Live</span><span class="tag ai">AI-powered</span><span class="tag">Queue &amp; Revenue</span></div>
           <div class="card-title" style="font-size:19px;margin-bottom:6px">LUPAD Fantasyland</div>
-          <div class="card-desc" style="margin-bottom:14px">Virtual queue, GCash/Maya cashless, RFID tap-to-pay, F&B pre-ordering, live ops dashboard. Offline-first. −40% queue wait · +25% guest spend · 8-week delivery.</div>
-          <div class="card-tags">
-            <span class="tag">React Native</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">Redis</span><span class="tag">GCash</span><span class="tag">RFID NFC</span>
-          </div>
+          <div class="card-desc" style="margin-bottom:14px">Virtual queue management, GCash/Maya cashless, RFID tap-to-pay, F&amp;B pre-ordering, and AI-driven ops intelligence. Offline-first. −40% queue wait · +25% guest spend · 8-week delivery.</div>
+          <div class="card-tags"><span class="tag">React Native</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">Redis</span><span class="tag">GCash</span><span class="tag">RFID</span><span class="tag">AI</span></div>
         </div>
       </div>
 
@@ -563,12 +670,9 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
             <line x1="240" y1="0" x2="240" y2="160" stroke="rgba(255,255,255,.025)" stroke-width="4"/>
             <polyline points="40,120 80,80 160,80 240,40 280,40" fill="none" stroke="rgba(16,185,129,.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
             <polyline points="60,40 80,40 160,80 240,80 300,120" fill="none" stroke="rgba(6,182,212,.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
-            <rect x="130" y="73" width="12" height="12" rx="2" fill="rgba(16,185,129,.8)" stroke="#10B981" stroke-width="1"/>
-            <text x="136" y="82" text-anchor="middle" font-size="7" fill="#fff">T</text>
-            <rect x="210" y="33" width="12" height="12" rx="2" fill="rgba(6,182,212,.8)" stroke="#06B6D4" stroke-width="1"/>
-            <text x="216" y="42" text-anchor="middle" font-size="7" fill="#fff">T</text>
-            <rect x="68" y="113" width="12" height="12" rx="2" fill="rgba(251,191,36,.7)" stroke="#FBBF24" stroke-width="1"/>
-            <text x="74" y="122" text-anchor="middle" font-size="7" fill="#fff">T</text>
+            <rect x="130" y="73" width="12" height="12" rx="2" fill="rgba(16,185,129,.8)" stroke="#10B981" stroke-width="1"/><text x="136" y="82" text-anchor="middle" font-size="7" fill="#fff">T</text>
+            <rect x="210" y="33" width="12" height="12" rx="2" fill="rgba(6,182,212,.8)" stroke="#06B6D4" stroke-width="1"/><text x="216" y="42" text-anchor="middle" font-size="7" fill="#fff">T</text>
+            <rect x="68" y="113" width="12" height="12" rx="2" fill="rgba(251,191,36,.7)" stroke="#FBBF24" stroke-width="1"/><text x="74" y="122" text-anchor="middle" font-size="7" fill="#fff">T</text>
             <circle cx="40" cy="120" r="4" fill="rgba(124,58,237,.8)"/>
             <circle cx="280" cy="40" r="4" fill="rgba(124,58,237,.5)" stroke="rgba(124,58,237,.4)" stroke-width="2"/>
             <text x="10" y="15" font-size="8" font-weight="700" letter-spacing="1" fill="rgba(255,255,255,.18)" font-family="system-ui">MINDANAO · DISPATCH</text>
@@ -579,15 +683,10 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
           </div>
         </div>
         <div class="work-body-lg">
-          <div class="card-tags">
-            <span class="tag green">Delivered</span>
-            <span class="tag">Logistics · Fleet</span>
-          </div>
+          <div class="card-tags"><span class="tag green">Delivered</span><span class="tag">Logistics · Fleet</span></div>
           <div class="card-title" style="font-size:19px;margin-bottom:6px">Fleet Dispatch System</div>
           <div class="card-desc" style="margin-bottom:14px">Real-time dispatch and tracking for a Mindanao logistics company — driver apps, operator dashboard, offline-sync for dead zones along provincial routes.</div>
-          <div class="card-tags">
-            <span class="tag">Next.js</span><span class="tag">Go</span><span class="tag">WebSocket</span><span class="tag">PostgreSQL</span><span class="tag">React Native</span>
-          </div>
+          <div class="card-tags"><span class="tag">Next.js</span><span class="tag">Go</span><span class="tag">WebSocket</span><span class="tag">PostgreSQL</span><span class="tag">React Native</span></div>
         </div>
       </div>
 
@@ -596,58 +695,59 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
 </section>
 
 <!-- TEAM -->
-<section class="sec" id="team">
+<section class="sec" id="team" style="background:var(--s1)">
   <div class="sec-inner">
     <div class="sec-head">
       <div class="sec-title">The <span>team</span></div>
-      <div class="sec-meta">4 engineers · all senior</div>
+      <div class="sec-meta">Every project gets our leads</div>
     </div>
     <div class="grid-4">
 
-      <div class="team-card lead">
-        <div class="team-visual team-bg-purple">
-          <span class="founder-pill">Founder</span>
+      <div class="team-card" data-reveal data-delay="1">
+        <div class="team-visual tbg-purple">
+          <span class="role-pill rp-founder">Co-founder</span>
           <div class="av-block av-purple">MO</div>
         </div>
         <div class="team-body">
           <div class="team-name">Marissa Oco</div>
-          <div class="team-role">Lead Engineer</div>
-          <div class="team-bio">Full-stack engineer. Leads architecture, client work, and ships code on every project.</div>
-          <div class="team-stack"><span class="stech">React Native</span><span class="stech">Next.js</span><span class="stech">Node.js</span></div>
+          <div class="team-role tr-purple">Co-founder &amp; CTO</div>
+          <div class="team-bio">Full-stack engineer and builder. Leads architecture, product, and ships code on every project.</div>
+          <div class="team-stack"><span class="stech">React Native</span><span class="stech">Next.js</span><span class="stech">Node.js</span><span class="stech">AI Systems</span></div>
         </div>
       </div>
 
-      <div class="team-card">
-        <div class="team-visual team-bg-teal">
-          <div class="av-block av-teal">CR</div>
+      <div class="team-card cofounder" data-reveal data-delay="2">
+        <div class="team-visual tbg-green">
+          <span class="role-pill rp-cofounder">Co-founder</span>
+          <div class="av-block av-green">WS</div>
         </div>
         <div class="team-body">
-          <div class="team-name">Carlos Reyes</div>
-          <div class="team-role">Backend Engineer</div>
-          <div class="team-bio">High-throughput APIs, Redis pub/sub, PostgreSQL query tuning at scale.</div>
-          <div class="team-stack"><span class="stech">Go</span><span class="stech">Node.js</span><span class="stech">Redis</span></div>
+          <div class="team-name">Wilfred Soriaga</div>
+          <div class="team-role tr-green">Co-founder · CX, Marketing &amp; QA</div>
+          <div class="team-bio">The reason nothing ever ships broken. Leads quality assurance, customer experience, and marketing. If Wilfred hasn't cleared it, it doesn't go out.</div>
+          <div class="team-stack"><span class="stech">QA</span><span class="stech">CX</span><span class="stech">Marketing</span><span class="stech">Testing</span></div>
         </div>
       </div>
 
-      <div class="team-card">
-        <div class="team-visual team-bg-green">
-          <div class="av-block av-green">AS</div>
+      <div class="team-card" data-reveal data-delay="3">
+        <div class="team-visual tbg-teal">
+          <div class="av-block av-teal">AS</div>
         </div>
         <div class="team-body">
           <div class="team-name">Alex Santos</div>
-          <div class="team-role">Mobile Developer</div>
-          <div class="team-bio">React Native specialist. 8 live apps. NFC/RFID and offline-first architecture.</div>
+          <div class="team-role tr-cyan">Mobile Developer</div>
+          <div class="team-bio">React Native specialist. 8 live apps shipped. NFC/RFID integration and offline-first architecture.</div>
           <div class="team-stack"><span class="stech">React Native</span><span class="stech">NFC</span><span class="stech">SQLite</span></div>
         </div>
       </div>
 
-      <div class="team-card">
-        <div class="team-visual team-bg-indigo">
+      <div class="team-card" data-reveal data-delay="4">
+        <div class="team-visual tbg-indigo">
           <div class="av-block av-indigo">DC</div>
         </div>
         <div class="team-body">
           <div class="team-name">Diana Cruz</div>
-          <div class="team-role">Product &amp; Design</div>
+          <div class="team-role tr-indigo">Product &amp; Design</div>
           <div class="team-bio">BRDs, PRDs, and interactive prototypes clients approve before development starts.</div>
           <div class="team-stack"><span class="stech">Figma</span><span class="stech">BRD/PRD</span><span class="stech">UX</span></div>
         </div>
@@ -662,15 +762,15 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
   <div class="stack-label">Technology stack</div>
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span class="marquee-item">React Native</span><span class="marquee-item">Next.js</span><span class="marquee-item">Node.js</span><span class="marquee-item">Go</span><span class="marquee-item">PostgreSQL</span><span class="marquee-item">Redis</span><span class="marquee-item">TypeScript</span><span class="marquee-item">GCash API</span><span class="marquee-item">Maya API</span><span class="marquee-item">QR Ph</span><span class="marquee-item">NFC · RFID</span><span class="marquee-item">AWS</span><span class="marquee-item">Docker</span><span class="marquee-item">WebSocket</span><span class="marquee-item">Semaphore SMS</span><span class="marquee-item">FCM · APNs</span><span class="marquee-item">PCI-DSS</span><span class="marquee-item">Figma</span><span class="marquee-item">Tailwind CSS</span>
-      <span class="marquee-item">React Native</span><span class="marquee-item">Next.js</span><span class="marquee-item">Node.js</span><span class="marquee-item">Go</span><span class="marquee-item">PostgreSQL</span><span class="marquee-item">Redis</span><span class="marquee-item">TypeScript</span><span class="marquee-item">GCash API</span><span class="marquee-item">Maya API</span><span class="marquee-item">QR Ph</span><span class="marquee-item">NFC · RFID</span><span class="marquee-item">AWS</span><span class="marquee-item">Docker</span><span class="marquee-item">WebSocket</span><span class="marquee-item">Semaphore SMS</span><span class="marquee-item">FCM · APNs</span><span class="marquee-item">PCI-DSS</span><span class="marquee-item">Figma</span><span class="marquee-item">Tailwind CSS</span>
+      <span class="marquee-item">React Native</span><span class="marquee-item">Next.js</span><span class="marquee-item">Node.js</span><span class="marquee-item">Go</span><span class="marquee-item">PostgreSQL</span><span class="marquee-item">Redis</span><span class="marquee-item">TypeScript</span><span class="marquee-item">AI / LLM</span><span class="marquee-item">GCash API</span><span class="marquee-item">Maya API</span><span class="marquee-item">QR Ph</span><span class="marquee-item">NFC · RFID</span><span class="marquee-item">AWS</span><span class="marquee-item">Docker</span><span class="marquee-item">WebSocket</span><span class="marquee-item">Semaphore SMS</span><span class="marquee-item">PCI-DSS</span><span class="marquee-item">Figma</span>
+      <span class="marquee-item">React Native</span><span class="marquee-item">Next.js</span><span class="marquee-item">Node.js</span><span class="marquee-item">Go</span><span class="marquee-item">PostgreSQL</span><span class="marquee-item">Redis</span><span class="marquee-item">TypeScript</span><span class="marquee-item">AI / LLM</span><span class="marquee-item">GCash API</span><span class="marquee-item">Maya API</span><span class="marquee-item">QR Ph</span><span class="marquee-item">NFC · RFID</span><span class="marquee-item">AWS</span><span class="marquee-item">Docker</span><span class="marquee-item">WebSocket</span><span class="marquee-item">Semaphore SMS</span><span class="marquee-item">PCI-DSS</span><span class="marquee-item">Figma</span>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
 <div class="cta-block" id="contact">
-  <h2>Start a project<br><span>we'll ship it.</span></h2>
+  <h2>Let's build something<br><span>worth shipping.</span></h2>
   <p>Tell us what you're building. We'll tell you if we're the right team — honestly, within 24 hours.</p>
   <div class="cta-email"><span>📧</span><strong>hello@minelabs.ph</strong></div>
 </div>
@@ -681,25 +781,21 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
     <div class="footer-top">
       <div>
         <div class="footer-logo">mine<span>.</span></div>
-        <div class="footer-tagline">If you can think it, it's yours. Full-stack platforms for Philippine businesses.</div>
+        <div class="footer-tagline">If you can think it, it's yours. We build full-stack platforms for Philippine businesses.</div>
       </div>
       <div>
         <div class="footer-col-title">Services</div>
         <div class="footer-links">
-          <span class="footer-link">Mobile Apps</span>
-          <span class="footer-link">Web Platforms</span>
-          <span class="footer-link">Backend APIs</span>
-          <span class="footer-link">PH Payments</span>
-          <span class="footer-link">Product Design</span>
-          <span class="footer-link">Cloud / DevOps</span>
+          <span class="footer-link">Mobile Apps</span><span class="footer-link">Web Platforms</span>
+          <span class="footer-link">AI Systems</span><span class="footer-link">PH Payments</span>
+          <span class="footer-link">QA &amp; CX</span><span class="footer-link">Cloud / DevOps</span>
         </div>
       </div>
       <div>
         <div class="footer-col-title">Company</div>
         <div class="footer-links">
-          <a class="footer-link" href="#work">Work</a>
-          <a class="footer-link" href="#team">Team</a>
-          <a class="footer-link" href="#contact">Contact</a>
+          <a class="footer-link" href="#work">Work</a><a class="footer-link" href="#process">Process</a>
+          <a class="footer-link" href="#team">Team</a><a class="footer-link" href="#contact">Contact</a>
         </div>
       </div>
       <div>
@@ -719,38 +815,126 @@ footer{border-top:1px solid var(--border);padding:52px max(24px,env(safe-area-in
 </footer>
 
 <script>
-// Scroll reveal via IntersectionObserver
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+// ── Scroll reveal ─────────────────────────────────
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
 
-// Animated counter for hero stats
-function animateCounter(el, target, suffix) {
-  const dur = 1400, start = performance.now();
-  const update = now => {
-    const p = Math.min((now - start) / dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(eased * target) + suffix;
-    if (p < 1) requestAnimationFrame(update);
+// ── Stat counter ──────────────────────────────────
+function counter(el, to, suffix, dur=1400) {
+  const start = performance.now();
+  const run = now => {
+    const p = Math.min((now-start)/dur,1), e = 1-Math.pow(1-p,3);
+    el.textContent = Math.round(e*to)+suffix;
+    if(p<1) requestAnimationFrame(run);
   };
-  requestAnimationFrame(update);
+  requestAnimationFrame(run);
 }
-const statsObs = new IntersectionObserver((entries) => {
+const statObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    statsObs.unobserve(e.target);
-    const counters = e.target.querySelectorAll('.hstat-num');
-    counters.forEach(c => {
-      const txt = c.textContent.trim();
-      const num = parseInt(txt);
-      const suffix = txt.replace(String(num), '');
-      if (!isNaN(num) && num > 0) animateCounter(c, num, suffix);
+    if(!e.isIntersecting) return; statObs.unobserve(e.target);
+    e.target.querySelectorAll('.hstat-num').forEach(n => {
+      const c=parseInt(n.dataset.count), s=n.dataset.suffix||'';
+      if(c>0) counter(n,c,s);
     });
   });
-}, { threshold: 0.5 });
-const statsRow = document.querySelector('.hero-stats');
-if (statsRow) statsObs.observe(statsRow);
+}, {threshold:.5});
+const hs = document.querySelector('.hero-stats'); if(hs) statObs.observe(hs);
+
+// ── Live dashboard animation ──────────────────────
+const rideNames = ['🎢 Roller Coaster','🗼 Flying Tower','❄️ Snow World','🎡 Ferris Wheel','🎠 Carousel'];
+let guests=1842, rev=284, fbRev=72, epRev=48, mcRev=19, cashless=64;
+const queues = [
+  {id:'q1',tid:'qt1',wid:'wq1',wtid:'wqt1',w:85,t:42,color:'#F43F5E'},
+  {id:'q2',tid:'qt2',wid:'wq2',wtid:'wqt2',w:70,t:35,color:'#FBBF24'},
+  {id:'q3',tid:'qt3',wid:'wq3',wtid:'wqt3',w:45,t:22,color:'#FBBF24'},
+  {id:'q4',tid:'qt4',wid:'wq4',wtid:'wqt4',w:18,t:8,color:'#10B981'},
+  {id:'q5',tid:'qt5',wid:'wq5',wtid:'wqt5',w:30,t:12,color:'#10B981'},
+];
+const aiInsights = [
+  'AI: Predict 15% queue surge at Roller Coaster in 20 min',
+  'AI: Ferris Wheel optimal — no intervention needed',
+  'AI: Recommend 2x Express Pass pricing for Roller Coaster',
+  'AI: F&B spike expected during Dolphin Show break (3:30pm)',
+  'AI: Cashless adoption up 3% vs last Saturday',
+  'AI: Snow World capacity optimal — open second lane at 2pm',
+];
+let aiIdx=0;
+
+function clamp(v,lo,hi){return Math.min(hi,Math.max(lo,v))}
+function rand(lo,hi){return lo+Math.random()*(hi-lo)}
+
+function tickDash() {
+  guests += Math.round(rand(-5,15));
+  rev += rand(.5,4);
+  fbRev += rand(.1,1.2);
+  epRev += rand(.05,.8);
+  mcRev += rand(.02,.4);
+  cashless = clamp(cashless+rand(-.5,.8), 55, 78);
+
+  const gEl=document.getElementById('kpi-guests');
+  const rEl=document.getElementById('kpi-rev');
+  const cEl=document.getElementById('kpi-cashless');
+  if(gEl) gEl.textContent=guests.toLocaleString();
+  if(rEl) rEl.textContent='₱'+Math.round(rev)+'K';
+  if(cEl) cEl.textContent=Math.round(cashless)+'%';
+
+  const fbEl=document.getElementById('rev-fb');
+  const epEl=document.getElementById('rev-ep');
+  const mcEl=document.getElementById('rev-mc');
+  if(fbEl) fbEl.textContent='₱'+Math.round(fbRev)+'K';
+  if(epEl) epEl.textContent='₱'+Math.round(epRev)+'K';
+  if(mcEl) mcEl.textContent='₱'+Math.round(mcRev)+'K';
+  const fbBar=document.getElementById('rev-fb-bar');
+  const epBar=document.getElementById('rev-ep-bar');
+  if(fbBar) fbBar.style.width=clamp(fbRev/120*100,20,100)+'%';
+  if(epBar) epBar.style.width=clamp(epRev/80*100,15,100)+'%';
+
+  queues.forEach(q => {
+    q.w = clamp(q.w + rand(-6,8), 8, 98);
+    q.t = Math.round(q.w * .55);
+    q.color = q.w>70?'#F43F5E':q.w>40?'#FBBF24':'#10B981';
+    const fill=document.getElementById(q.id);
+    const time=document.getElementById(q.tid);
+    const fill2=document.getElementById(q.wid);
+    const time2=document.getElementById(q.wtid);
+    if(fill){fill.style.width=q.w+'%';fill.style.background=q.color}
+    if(time) time.textContent=q.t+'m';
+    if(fill2){fill2.style.width=q.w+'%';fill2.style.background=q.color}
+    if(time2) time2.textContent=q.t+'m';
+  });
+
+  // Avg wait
+  const avgW = Math.round(queues.reduce((s,q)=>s+q.t,0)/queues.length);
+  const wEl=document.getElementById('kpi-wait'); if(wEl) wEl.textContent=avgW+'m';
+
+  // delta flickers
+  const gd=document.getElementById('kpi-guests-d');
+  if(gd){ const d=Math.round(rand(-8,20)); gd.textContent=(d>=0?'+':'')+d; gd.className='hd-kpi-delta '+(d>=0?'delta-up':'delta-dn'); }
+
+  // Work card phone counter
+  const lapCnt=document.getElementById('lap-cnt');
+  if(lapCnt) lapCnt.textContent=Math.round(rand(14,22))+'m';
+  const wk1=document.getElementById('wk1'); if(wk1) wk1.textContent=guests.toLocaleString();
+  const wk2=document.getElementById('wk2'); if(wk2) wk2.textContent='₱'+Math.round(rev)+'K';
+  const wk3=document.getElementById('wk3'); if(wk3) wk3.textContent=avgW+'m';
+  const wk4=document.getElementById('wk4'); if(wk4) wk4.textContent=Math.round(cashless)+'%';
+}
+
+function tickAI() {
+  aiIdx=(aiIdx+1)%aiInsights.length;
+  const el=document.getElementById('ai-insight');
+  if(el){
+    el.style.opacity='0';
+    setTimeout(()=>{ el.textContent=aiInsights[aiIdx]; el.style.opacity='1'; }, 300);
+  }
+}
+if(document.getElementById('ai-insight')){
+  document.getElementById('ai-insight').style.transition='opacity .3s';
+}
+
+setInterval(tickDash, 2200);
+setInterval(tickAI, 4500);
+tickDash();
 </script>
